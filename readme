@@ -1,0 +1,26 @@
+此项目包括三个UDF：身份证解析UDF、手机号解析UDF、嵌套Json串解析UDF
+1、身份证解析UDF：
+    用于返回省市县信息、性别、星座、生日、年龄、15位身份证转18位、验证身份证是否有效
+2、手机号解析UDF：
+    用于返回运营商和省市信息、验证手机号是否有效、截取手机号后四位
+
+
+Hive UDF介绍：
+
+UDF：
+   user defined function，用户自定义函数。有时候你要写的查询无法轻松地通过使用Hive提供的内置函数来表示，通过写UDF，Hive就可以方便地插入
+用户写的处理代码并在查询中使用它们，相当于在HQL中自定义一些函数。UDF必须用java编写，编写一个UDF，需要继承UDF类并实现evaluate()方法，该方法
+并不在UDF中，但是Hive会检查用户的UDF是否有evaluate()方法。在查询执行的过程中，查询中对应的每个应用到这个函数的地方都会对这个类进行实例化，对于
+每行输入都会调用evaluate()方法，evaluate()处理后的值会返回给Hive。用户可以重载evaluate()方法，Hive会像java的方法重载一样，自动选择匹配的
+方法。
+
+Hive中有三种UDF:
+1、(普通)UDF：
+    UDF操作作用于单个数据行，并且产生一个数据行作为输出，大多数函数都属于这一类（比如一些数学函数和字符串函数）
+2、用户定义聚集函数(user-defined aggregate function，UDAF)：
+    UDAF接受多个输入数据行，并产生一个输出数据行，像COUNT和MAX这样的函数就是聚集函数
+3、用户定义表生成函数(user-defined table-generating function，UDTF)：
+    UDTF操作作用于单个数据行，并且产生多个数据行(一个表)作为输出
+
+
+
