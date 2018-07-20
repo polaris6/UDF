@@ -7,12 +7,12 @@ package id_udf;
 public class ChinaIdArea {
     private String province;
     private String city;
-    private String area;
+    private String county;
 
-    public ChinaIdArea(String province, String city, String area) {
+    public ChinaIdArea(String province, String city, String county) {
         this.province = province;
         this.city = city;
-        this.area = area;
+        this.county = county;
     }
 
     public String getProvince() {
@@ -23,7 +23,7 @@ public class ChinaIdArea {
         return city;
     }
 
-    public String getArea() {
-        return area;
+    public String getCounty() {
+        return county;
     }
 }
