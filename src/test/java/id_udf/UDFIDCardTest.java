@@ -75,9 +75,9 @@ public class UDFIDCardTest {
     public void validTest(){
 
         String trueIdCard = "410801199201042176";        //正确的身份证号
-        //错误的身份证号：校验码错误，省编码错误，年份错误，月份错误，日错误，前17位存在非数字
+        //错误的身份证号：校验码错误，省编码错误，年份错误，月份错误，日错误，前17位存在非数字，15位身份证存在非数字
         String[] falseIdCard = {"410801199201042171","660901198810082577","441600187511042139",
-                "370402198213080791","230207198906314319","37132X199401117258"};
+                "370402198213080791","230207198906314319","37132X199401117258","12019820414362x"};
 
         assertEquals("true", id.evaluate(trueIdCard, 7));
         System.out.println(trueIdCard + " -- expected :true" + "  actual :" + id.evaluate(trueIdCard, 7));
@@ -90,7 +90,7 @@ public class UDFIDCardTest {
 
     @Test
     public void ss(){
-        String trueIdCard = "110101199003076878";
+        String trueIdCard = "410801199201042176";
         System.out.println(id.evaluate(trueIdCard));
     }
 }

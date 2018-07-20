@@ -142,8 +142,13 @@ public class CardUtils {
         boolean flag = false;
         if (!idCard.isEmpty() && idCard != null) {
             int cardLength = idCard.length();
-            if(cardLength == 15)
+            if(cardLength != 15 && cardLength != 18)
+                return flag;
+            if(cardLength == 15) {
+                if(!idCard.matches("^[0-9]+$"))
+                    return flag;
                 idCard = CardConvert.convertIdcarBy15bit(idCard);
+            }
             flag = isValidate18Idcard(idCard);
         }
         return flag;
@@ -199,7 +204,7 @@ public class CardUtils {
         String idcard17 = idCard.substring(0, 17);
 
         // 前17位是否全都为数字
-        if (idcard17.matches("[0-9]+")) {
+        if (idcard17.matches("^[0-9]+$")) {
             String provinceid = idCard.substring(0, 2);
             String birthday = idCard.substring(6, 14);
             int year = Integer.parseInt(idCard.substring(8, 10));   //取year后两位
@@ -274,7 +279,8 @@ public class CardUtils {
             if (!mflag) {
                 return false;
             }
-        }
+        }else if(!idcard17.matches("^[0-9]+$"))
+            return false;
 
         //判断第18位校验码是否正确
         char validateCode = getValidateCode(idcard17);

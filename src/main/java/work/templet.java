@@ -13,10 +13,10 @@ public class templet {
         // 把字段名存入数组，>10因为空格和换行也占字符
         while((n = br.readLine()).length() > 10)
             fields.add(n.split("`")[1]);
-        //nvl(fields);
-        //normal(fields);
+        nvl(fields);
+        normal(fields);
         //insert(fields);
-        diff(fields);
+        //diff(fields);
     }
 
     // 非空记录数比较
